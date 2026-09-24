@@ -1,0 +1,1021 @@
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+  --bg: #000000;
+  --bg-elevated: #0b0b0b;
+
+  --gold: #f2c14e;
+  --gold-light: #ffe08a;
+  --gold-soft: rgba(242, 193, 78, 0.15);
+
+  --text: #f1ead7;
+  --text-muted: #a9a28f;
+
+  --border: #29261e;
+
+  --font-pixel: "Press Start 2P", monospace;
+  --font-body: "IBM Plex Mono", monospace;
+
+  --max-width: 760px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #11100d 0%,
+      #000000 45%
+    );
+
+  color: var(--text);
+
+  font-family: var(--font-body);
+
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 1.5rem 2rem;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+
+.brand {
+
+  font-family: var(--font-pixel);
+
+  font-size: 0.75rem;
+
+  color: var(--gold);
+
+  text-decoration: none;
+
+  letter-spacing: 0.05em;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.brand:hover {
+
+  color: var(--gold-light);
+
+  transform: translateY(-2px);
+}
+
+
+.nav {
+
+  display: flex;
+
+  gap: 1.5rem;
+}
+
+
+.nav a {
+
+  position: relative;
+
+  text-decoration: none;
+
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.nav a::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -5px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--gold);
+
+  transition: width 0.2s ease;
+}
+
+
+.nav a:hover,
+.nav a:focus-visible {
+
+  color: var(--gold);
+}
+
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+  max-width: var(--max-width);
+
+  margin: 0 auto;
+
+  padding: 5rem 2rem 4rem;
+}
+
+
+/* =========================================================
+   FILMINHO / QUADROS
+========================================================= */
+
+.hero-frames {
+
+  display: flex;
+
+  gap: 0.45rem;
+
+  margin-bottom: 2.5rem;
+}
+
+
+.frame {
+
+  width: 28px;
+
+  height: 20px;
+
+  border: 2px solid var(--border);
+
+  border-radius: 2px;
+
+  position: relative;
+
+  animation: film-frame 1.8s steps(1) infinite;
+}
+
+
+.frame::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 3px;
+
+  border: 1px solid transparent;
+}
+
+
+.frame:nth-child(1) {
+  animation-delay: 0s;
+}
+
+
+.frame:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+
+.frame:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+
+.frame:nth-child(4) {
+  animation-delay: 1.35s;
+}
+
+
+@keyframes film-frame {
+
+  0%,
+  100% {
+
+    border-color: var(--border);
+
+    background: transparent;
+  }
+
+  15% {
+
+    border-color: var(--gold);
+
+    background: var(--gold-soft);
+
+    box-shadow:
+      0 0 10px rgba(242, 193, 78, 0.12);
+  }
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.hero-title {
+
+  font-family: var(--font-pixel);
+
+  font-size: clamp(1.8rem, 6vw, 3.2rem);
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  margin: 0 0 1.8rem;
+
+  color: var(--gold);
+
+  text-shadow:
+    0 0 15px rgba(242, 193, 78, 0.12);
+}
+
+
+.hero-title em {
+
+  font-style: normal;
+
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   TEXTOS DO HERO
+========================================================= */
+
+.hero-tagline {
+
+  font-size: 1rem;
+
+  max-width: 55ch;
+
+  margin: 0 0 1rem;
+
+  color: var(--text);
+}
+
+
+.hero-subtext {
+
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+
+  margin: 0;
+}
+
+
+.separator {
+
+  color: var(--gold);
+
+  padding: 0 0.3rem;
+}
+
+
+/* =========================================================
+   BOLINHA — SQUASH AND STRETCH
+========================================================= */
+
+.bounce-ball {
+
+  width: 28px;
+
+  height: 28px;
+
+  margin: 4rem auto 0;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 18px rgba(242, 193, 78, 0.2);
+
+  animation: bounce 1.1s infinite;
+}
+
+
+@keyframes bounce {
+
+  0% {
+
+    transform:
+      translateY(0)
+      scaleX(1.3)
+      scaleY(0.7);
+
+    animation-timing-function: ease-out;
+  }
+
+  12% {
+
+    transform:
+      translateY(-15px)
+      scaleX(0.95)
+      scaleY(1.05);
+  }
+
+  42% {
+
+    transform:
+      translateY(-105px)
+      scaleX(0.85)
+      scaleY(1.2);
+
+    animation-timing-function: ease-in;
+  }
+
+  72% {
+
+    transform:
+      translateY(-15px)
+      scaleX(0.95)
+      scaleY(1.05);
+
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+
+    transform:
+      translateY(0)
+      scaleX(1.3)
+      scaleY(0.7);
+  }
+}
+
+
+/* =========================================================
+   PAC-MAN DIVIDER
+========================================================= */
+
+.pacman-divider {
+
+  width: 100%;
+
+  overflow: hidden;
+
+  height: 45px;
+
+  position: relative;
+
+  margin: 1rem 0 2rem;
+
+  border-top: 1px solid var(--border);
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.pacman-track {
+
+  position: absolute;
+
+  left: -100px;
+
+  top: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  transform: translateY(-50%);
+
+  animation: pacman-run 7s linear infinite;
+}
+
+
+.pacman {
+
+  width: 24px;
+
+  height: 24px;
+
+  background: var(--gold);
+
+  border-radius: 50%;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  animation: pacman-mouth 0.35s steps(2) infinite;
+}
+
+
+/* Olho do Pac-Man */
+
+.pacman-eye {
+
+  position: absolute;
+
+  width: 4px;
+
+  height: 4px;
+
+  background: #000;
+
+  border-radius: 50%;
+
+  top: 4px;
+
+  right: 5px;
+}
+
+
+/* Boca */
+
+@keyframes pacman-mouth {
+
+  0% {
+
+    clip-path: polygon(
+      0 0,
+      100% 50%,
+      0 100%
+    );
+  }
+
+  50% {
+
+    clip-path: polygon(
+      0 0,
+      100% 50%,
+      0 100%
+    );
+  }
+
+  51% {
+
+    clip-path: polygon(
+      0 0,
+      100% 35%,
+      100% 65%,
+      0 100%
+    );
+  }
+
+  100% {
+
+    clip-path: polygon(
+      0 0,
+      100% 35%,
+      100% 65%,
+      0 100%
+    );
+  }
+}
+
+
+.dot {
+
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  flex-shrink: 0;
+}
+
+
+@keyframes pacman-run {
+
+  from {
+
+    transform:
+      translate(-100px, -50%);
+  }
+
+  to {
+
+    transform:
+      translate(calc(100vw + 100px), -50%);
+  }
+}
+
+
+/* =========================================================
+   DIVISOR PIXEL
+========================================================= */
+
+.pixel-divider {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin: 1rem auto;
+
+  opacity: 0.5;
+}
+
+
+.pixel-divider span {
+
+  width: 5px;
+
+  height: 5px;
+
+  background: var(--gold);
+
+  animation: pixel-blink 1.2s steps(2) infinite;
+}
+
+
+.pixel-divider span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+
+.pixel-divider span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+
+.pixel-divider span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+
+.pixel-divider span:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+
+@keyframes pixel-blink {
+
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section {
+
+  max-width: var(--max-width);
+
+  margin: 0 auto;
+
+  padding: 4rem 2rem;
+
+  border-top: 1px solid var(--border);
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+
+.section.is-visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+.section-title {
+
+  font-family: var(--font-pixel);
+
+  font-weight: 400;
+
+  font-size: clamp(1rem, 3vw, 1.35rem);
+
+  line-height: 1.7;
+
+  margin: 0 0 2rem;
+
+  color: var(--gold);
+}
+
+
+.section-body p {
+
+  margin: 0 0 1.2rem;
+
+  max-width: 65ch;
+
+  color: var(--text);
+
+  font-size: 0.88rem;
+}
+
+
+.section-body p:last-child {
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   HABILIDADES
+========================================================= */
+
+.skills-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 2.5rem;
+}
+
+
+.skill-group h3 {
+
+  font-family: var(--font-pixel);
+
+  font-size: 0.65rem;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+
+  color: var(--text-muted);
+
+  margin: 0 0 1rem;
+}
+
+
+.skill-group--building h3 {
+
+  color: var(--gold);
+}
+
+
+.skill-group ul {
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.skill-group li {
+
+  position: relative;
+
+  padding: 0.75rem 0 0.75rem 1.2rem;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 0.8rem;
+
+  color: var(--text);
+}
+
+
+.skill-group li::before {
+
+  content: "•";
+
+  position: absolute;
+
+  left: 0;
+
+  color: var(--gold);
+}
+
+
+.skill-group li:last-child {
+
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   PORTFÓLIO
+========================================================= */
+
+.portfolio-empty {
+
+  background: var(--bg-elevated);
+
+  border: 1px dashed var(--border);
+
+  border-radius: 4px;
+
+  padding: 2.5rem 2rem;
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.portfolio-empty::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(242, 193, 78, 0.015) 3px,
+      rgba(242, 193, 78, 0.015) 4px
+    );
+
+  pointer-events: none;
+}
+
+
+.portfolio-icon {
+
+  font-size: 2rem;
+
+  color: var(--gold);
+
+  margin-bottom: 1.5rem;
+}
+
+
+.portfolio-empty p {
+
+  margin: 0 0 0.7rem;
+
+  font-size: 0.85rem;
+}
+
+
+.portfolio-empty-sub {
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem !important;
+
+  max-width: 50ch;
+
+  margin: 0 auto !important;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+  max-width: var(--max-width);
+
+  margin: 0 auto;
+
+  padding: 3rem 2rem;
+
+  color: var(--text-muted);
+
+  font-size: 0.7rem;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.footer p {
+
+  margin: 0;
+}
+
+
+.footer-pixel {
+
+  color: var(--gold);
+
+  font-family: var(--font-pixel);
+
+  font-size: 0.45rem;
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+a:focus-visible {
+
+  outline: 2px solid var(--gold);
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .topbar {
+
+    padding:
+      1.2rem 1.2rem;
+  }
+
+
+  .nav {
+
+    gap: 0.8rem;
+  }
+
+
+  .nav a {
+
+    font-size: 0.65rem;
+  }
+
+
+  .hero {
+
+    padding:
+      4rem 1.3rem 3rem;
+  }
+
+
+  .hero-title {
+
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+  }
+
+
+  .hero-tagline {
+
+    font-size: 0.82rem;
+  }
+
+
+  .hero-subtext {
+
+    font-size: 0.65rem;
+  }
+
+
+  .section {
+
+    padding:
+      3rem 1.3rem;
+  }
+
+
+  .section-body p {
+
+    font-size: 0.78rem;
+  }
+
+
+  .skills-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+
+  .footer {
+
+    padding:
+      2rem 1.3rem;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+
+  .pacman-divider {
+
+    margin-top: 0.5rem;
+  }
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+  }
+
+
+  .frame,
+  .bounce-ball,
+  .pacman,
+  .pacman-track,
+  .pixel-divider span {
+
+    animation: none;
+  }
+
+
+  .section {
+
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
+
+  .nav a,
+  .brand {
+
+    transition: none;
+  }
+  }
